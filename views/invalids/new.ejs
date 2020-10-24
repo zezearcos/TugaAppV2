@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+	<h1 class="form-h1">Add a new Invalid page</h1>
+	<div class="row">
+		<div style="width: 50%; margin: 25px auto;">
+			<form action="/invalids" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="website">Invalid page url:</label>
+					  <input id="website" class="form-control" type="text" name="invalid[website]" placeholder="Invalid page url" required>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="category">Category error:</label>
+					  <input id="category" class="form-control" type="text" name="invalid[category]" placeholder="Category error" required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot1">Screenshot 1:</label>
+					  <input id="screenshot1" class="form-control" type="text" name="invalid[screenshot1]" placeholder="Screenshot 1 url">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot2">Screenshot 2:</label>
+					  <input id="screenshot2" class="form-control" type="text" name="invalid[screenshot2]" placeholder="Screenshot 2 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot3">Screenshot 3:</label>
+					  <input id="screenshot3" class="form-control" type="text" name="invalid[screenshot3]" placeholder="Screenshot 3 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+							<label for="comment">Comment:</label>
+							<textarea rows="3" id="comment" class="form-control" name="invalid[comment]" placeholder="Comment..."></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-lg">Add Invalid page</button>
+				</div>
+			</form>
+			<a href="/invalids">Go Back</a>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+	<h1 class="form-h1">Add a new Superlative</h1>
+	<div class="row">
+		<div style="width: 50%; margin: 25px auto;">
+			<form action="/superlatives" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="name">Superlative:</label>
+					  <input id="name" class="form-control" type="text" name="superlative[name]" placeholder="Superlative" required>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="example">Example:</label>
+					  <input id="example" class="form-control" type="text" name="superlative[example]" placeholder="Example">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot1">Screenshot 1:</label>
+					  <input id="screenshot1" class="form-control" type="text" name="superlative[screenshot1]" placeholder="Screenshot 1 url">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot2">Screenshot 2:</label>
+					  <input id="screenshot2" class="form-control" type="text" name="superlative[screenshot2]" placeholder="Screenshot 2 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot3">Screenshot 3:</label>
+					  <input id="screenshot3" class="form-control" type="text" name="superlative[screenshot3]" placeholder="Screenshot 3 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+							<label for="comment">Comment:</label>
+							<textarea rows="3" id="comment" class="form-control" name="superlative[comment]" placeholder="Comment..."></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-lg">Add Superlative</button>
+				</div>
+			</form>
+			<a href="/superlatives">Go Back</a>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>

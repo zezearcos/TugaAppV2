@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+	<h1 class="form-h1">Edit Superlative</h1>
+	<div class="row">
+		<div style="width: 50%; margin: 25px auto;">
+			<form action="/superlatives/<%= superlative._id %>?_method=PUT" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="name">Superlative:</label>
+					  <input id="name" class="form-control" type="text" name="superlative[name]" value="<%= superlative.name %>" required>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="example">Example:</label>
+					  <input id="example" class="form-control" type="text" name="superlative[example]" value="<%= superlative.example %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot1">Screenshot 1:</label>
+					  <input id="screenshot1" class="form-control" type="text" name="superlative[screenshot1]" value="<%= superlative.screenshot1 %>">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot2">Screenshot 2:</label>
+					  <input id="screenshot2" class="form-control" type="text" name="superlative[screenshot2]" value="<%= superlative.screenshot2 %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot3">Screenshot 3:</label>
+					  <input id="screenshot3" class="form-control" type="text" name="superlative[screenshot3]" value="<%= superlative.screenshot3 %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="comment">Comment:</label>
+						<textarea id="comment" rows="3" class="form-control" name="superlative[comment]"><%= superlative.comment %></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-lg">Edit Superlative</button>
+				</div>
+			</form>
+			<a href="/superlatives">Go Back</a>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>

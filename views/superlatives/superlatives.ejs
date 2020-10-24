@@ -1,0 +1,121 @@
+<%- include("../partials/header") %>
+
+	<header class="jumbotron">
+		<div>
+			<form action="/superlatives" method="GET" class="form-inline">
+				<div class="form-group">
+					<input type="text" name="search" placeholder="Search..." class="form-control form-control-search" value="<%= search ? search : '' %>">
+					<input type="submit" value="Search..." class="btn btn-primary btn-space">
+					<% if(currentUser) { %>
+						<a class="btn btn-primary btn-add-space" href="/superlatives/new">Add new superlative</a>
+					<% } %>
+				</div>
+            </form>
+		</div>
+	</header>
+
+	<div class="row title-head text-center container" style="display:flex flex-wrap: wrap">
+		<div class="col-md-3 col-sm-6">
+			<h4>Superlative</h4>
+		</div>
+		<div class="col-md-3 col-sm-6">
+			<h4>Example</h4>
+		</div>
+		<div class="col-md-1 col-sm-6">
+			<h4>SS's/Links</h4>
+		</div>
+		<div class="col-md-5 col-sm-6">
+			<h4>Comments</h4>
+		</div>
+	</div>
+    
+	<div class="row container main">
+		<% var flag = true; %>
+		<% superlatives.forEach(function(superlative){ %>
+			<div class="col-md-3 col-sm-6 list-li <%= flag===true?'list-li-white':'list-li-grey' %>">
+				<%= superlative.name %>
+			</div>
+			<div class="col-md-3 col-sm-6 list-li <%= flag===true?'list-li-white':'list-li-grey' %>">
+				<%= superlative.example %>
+			</div>
+			<div class="col-md-1 col-sm-6 list-li <%= flag===true?'list-li-white':'list-li-grey' %>">
+				<% if(superlative.screenshot1 && superlative.screenshot1.length > 0 ) {%>
+					<a href="<%= superlative.screenshot1 %>" target="_blank">S1</a>
+					<span>&nbsp;</span>
+				<% } %>
+				<% if(superlative.screenshot2 && superlative.screenshot2.length > 0 ) {%>
+					<a href="<%= superlative.screenshot2 %>" target="_blank">S2</a> 
+					<span>&nbsp;</span>
+				<% } %>
+				<% if(superlative.screenshot3 && superlative.screenshot3.length > 0 ) {%>
+					<a href="<%= superlative.screenshot3 %>" target="_blank">S3</a> 
+				<% } %>
+			</div>
+			
+			<% if(currentUser) { %>
+				<div class="col-md-4 col-sm-6 list-li <%= flag===true?'list-li-white':'list-li-grey' %>">
+			<% } else { %>
+				<div class="col-md-5 col-sm-6 list-li <%= flag===true?'list-li-white':'list-li-grey' %>">
+			<% } %>
+				<%= superlative.comment %>
+			</div>
+			<% if(currentUser) { %>
+				<div class="col-md-1 col-sm-6 list-li-btn <%= flag===true?'list-li-white':'list-li-grey' %>">
+					<span class="admin-buttons">
+						<a class="btn btn-sm btn-warning" href="/superlatives/<%= superlative._id %>/edit">Edit</a>
+						<form class="delete-form" action="/superlatives/<%= superlative._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-sm btn-secondary">Delete</button>
+						</form>
+					</span>
+				</div>
+			<% } %>
+		<% flag = !flag; %>
+		<% }) %>
+					
+		<nav class="nav-pages" aria-label="Page navigation">
+    	<% if (pages && pages > 0) { %>
+    		<ul class="pagination justify-content-center">
+        	<% if (current == 1) { %>
+        		<li class="page-item disabled"><a class="page-link">First</a></li>
+        	<% } else { %>
+				<li><a class="page-link" href="/superlatives?search=<%=search%>">First</a></li>
+        	<% } %>
+ 
+        	<% if (current == 1) { %>
+        		<li class="page-item disabled"><a class="page-link">«</a></li>
+        	<% } else { %>
+        		<li><a class="page-link" href="/superlatives?page=<%= Number(current) - 1 %>&search=<%=search%>">«</a></li>
+        	<% } %>
+ 
+        	<% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+        	<% if (i !== 1) { %>
+        		<li class="page-item disabled"><a class="page-link">...</a></li>
+        	<% } %>
+        	<% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+        		<% if (i == current) { %>
+        			<li class="active"><a class="page-link"><%= i %></a></li>
+        		<% } else { %>
+        			<li><a class="page-link" href="/superlatives?page=<%= i %>&search=<%=search%>"><%= i %></a></li>
+        		<% } %>
+        		<% if (i == Number(current) + 4 && i < pages) { %>
+        			<li class="page-item disabled"><a class="page-link">...</a></li>
+        		<% } %>
+        	<% } %>
+ 
+        	<% if (current == pages) { %>
+        		<li class="page-item disabled"><a class="page-link">»</a></li>
+        	<% } else { %>
+        		<li><a class="page-link" href="/superlatives?page=<%= Number(current) + 1 %>&search=<%=search%>">»</a></li>
+        	<% } %>
+ 
+        	<% if (current == pages) { %>
+        		<li class="page-item disabled"><a class="page-link">Last</a></li>
+        	<% } else { %>
+        		<li><a class="page-link" href="/superlatives?page=<%= pages %>&search=<%=search%>">Last</a></li>
+        	<% } %>
+    	</ul>
+    	<% } %>
+	</nav>
+</div>
+
+<%- include("../partials/footer") %>

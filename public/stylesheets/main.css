@@ -1,0 +1,108 @@
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 1500px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.jumbotron {
+    height: 80px;
+    padding-top: 20px;
+	position: fixed;
+	top: 95px;
+	left:20px;
+	right:20px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.form-inline .form-control-search {
+	width:300px;
+}
+
+.title-head {
+    position: fixed;
+    top: 175px;
+	padding-top:5px;
+    overflow: hidden;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.form-h1{
+	text-align: center; 
+	padding-top: 80px;
+	color: #007bff;
+}
+
+.btn-space{
+	margin-left:8px;
+}
+
+.btn-add-space{
+	margin-left:25px;
+}
+
+.list-li {
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+	justify-content: center;
+	height:35px;
+	line-height: 1;
+}
+
+.list-li-btn{
+	padding-left: 0px;
+    padding-right: 0px;
+	margin-top: 1px;
+	display: flex;
+    align-items: center;
+}
+
+.main {
+    position: absolute;
+    top: 224px;
+    z-index: 1;
+}
+
+.list-li-white {
+    background-color: #fff;
+}
+
+.list-li-grey {
+    background-color: #eee;
+}
+
+.admin-buttons {
+    float: right;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.nav-pages{
+	width: 100%;
+    padding-top: 20px;
+}
+
+.bd-alert-status{
+	position: fixed;
+	left:20px;
+	right:20px;
+    top: 56px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.active{
+    background-color: #e7e7e7;
+}

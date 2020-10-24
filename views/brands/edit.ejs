@@ -1,0 +1,47 @@
+<%- include("../partials/header") %>
+
+	<h1 class="form-h1">Edit Brand</h1>
+	<div class="row">
+		<div style="width: 50%; margin: 25px auto;">
+			<form action="/brands/<%= brand._id %>?_method=PUT" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="brand">Brand:</label>
+					  <input id="brand" class="form-control" type="text" name="brand[name]" value="<%= brand.name %>" required>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="abbreviation">Abbreviation:</label>
+					  <input id="abbreviation" class="form-control" type="text" name="brand[abbreviation]" value="<%= brand.abbreviation %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot1">Screenshot 1:</label>
+					  <input id="screenshot1" class="form-control" type="text" name="brand[screenshot1]" value="<%= brand.screenshot1 %>">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot2">Screenshot 2:</label>
+					  <input id="screenshot2" class="form-control" type="text" name="brand[screenshot2]" value="<%= brand.screenshot2 %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot3">Screenshot 3:</label>
+					  <input id="screenshot3" class="form-control" type="text" name="brand[screenshot3]" value="<%= brand.screenshot3 %>">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+						<label for="comment">Comment:</label>
+						<textarea id="comment" rows="3" class="form-control" name="brand[comment]"><%= brand.comment %></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-lg">Edit Brand</button>
+				</div>
+			</form>
+			<a href="/brands">Go Back</a>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>

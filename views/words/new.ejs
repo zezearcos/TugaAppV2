@@ -1,0 +1,51 @@
+<%- include("../partials/header") %>
+
+	<h1 class="form-h1">Add a new Word</h1>
+	<div class="row">
+		<div style="width: 50%; margin: 25px auto;">
+			<form action="/words" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="portuguese">Portuguese:</label>
+					  <input id="portuguese" class="form-control" type="text" name="word[portuguese]" placeholder="Word in portuguese" required>
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="brazilian">Brazilian:</label>
+					  <input id="brazilian" class="form-control" type="text" name="word[brazilian]" placeholder="Word in brazilian" required>
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="abbreviation">Abbreviation:</label>
+					  <input id="abbreviation" class="form-control" type="text" name="word[abbreviation]" placeholder="Word abbreviation">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot1">Screenshot 1:</label>
+					  <input id="screenshot1" class="form-control" type="text" name="word[screenshot1]" placeholder="Screenshot 1 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+					  <label for="screenshot2">Screenshot 2:</label>
+					  <input id="screenshot2" class="form-control" type="text" name="word[screenshot2]" placeholder="Screenshot 2 url">
+					</div>
+					<div class="form-group col-md-6">
+					  <label for="screenshot3">Screenshot 3:</label>
+					  <input id="screenshot3" class="form-control" type="text" name="word[screenshot3]" placeholder="Screenshot 3 url">
+					</div>
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-12">
+							<label for="comment">Comment:</label>
+							<textarea rows="3" id="comment" class="form-control" name="word[comment]" placeholder="Comment..."></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-lg">Add Word</button>
+				</div>
+			</form>
+			<a href="/words">Go Back</a>
+		</div>
+	</div>
+
+<%- include("../partials/footer") %>
